@@ -114,16 +114,20 @@ Below are placeholders for demo videos showcasing the setup and functionality:
 
 ### **Demo 1: YOLO pick and place (all objects)**
 Path: '/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/yolo_pick_place.py'
+
 Video: https://youtu.be/zhXJAranXvs
 
 ### **Demo 2: Live follow object**
 Path: '/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/live_follow.py'
+
 Video: https://youtu.be/nmTNxC26TY8
 
 ### **Demo 3: YOLO pick and place by color**
 Path: '/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/color_pick_place.py'
+
 Video: https://youtu.be/rpVzYJeprjo
 
 ### **Demo 4: Debug of pointcloud and yolo systems**
 Path: '/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/debug.py'
+
 Video: https://youtu.be/09IttTgBQR8
