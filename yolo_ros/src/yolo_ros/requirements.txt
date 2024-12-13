@@ -1,0 +1,5 @@
+opencv-python>=4.8.1.78
+typing-extensions>=4.4.0
+ultralytics==8.3.26
+super-gradients==3.7.1
+lapx==0.5.11
