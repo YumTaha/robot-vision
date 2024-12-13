@@ -113,13 +113,14 @@ ros2 launch yolo_bringup yolov11.launch.py use_3d:=True input_depth_topic:="/cam
 Below are placeholders for demo videos showcasing the setup and functionality:
 
 ### **Demo 1: YOLO pick and place (all objects)**
-Path: `https://youtu.be/zhXJAranXvs`
+Path: 
+Video: https://youtu.be/zhXJAranXvs
 
 ### **Demo 2: Live follow object**
-Path: `https://youtu.be/nmTNxC26TY8`
+Path: https://youtu.be/nmTNxC26TY8
 
 ### **Demo 3: YOLO pick and place by color**
-Path: `https://youtu.be/rpVzYJeprjo`
+Path: https://youtu.be/rpVzYJeprjo
 
 ### **Demo 4: Debug of pointcloud and yolo systems**
-Path: `https://youtu.be/09IttTgBQR8`
+Path: https://youtu.be/09IttTgBQR8
