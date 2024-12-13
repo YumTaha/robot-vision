@@ -7,7 +7,7 @@ To integrate RealSense with ROS 2, follow the steps provided in the **Intel Real
 ```bash
 ros2 launch realsense2_camera rs_launch.py initial_reset:=true pointcloud.enable:=true align_depth.enable:=true
 ```
-If the "_frame not published within 5sec_" error pops up, you can add `initial_reset:=true` to the command.
+If the "frame not published within 5sec" error pops up, you can add `initial_reset:=true` to the command.
 
 ### **Ensure the following features are enabled:**
 - **Initial Reset**: Allows the RealSense device to reset to ensure proper startup.
@@ -105,3 +105,21 @@ ros2 launch realsense2_camera rs_launch.py initial_reset:=true pointcloud.enable
 Launch YOLO with 3D detection and adjusted depth inputs:
 ```bash
 ros2 launch yolo_bringup yolov11.launch.py use_3d:=True input_depth_topic:="/camera/camera/depth/image_rect_raw" input_depth_info_topic:="/camera/camera/depth/camera_info"
+```
+
+---
+
+## **7. Live Demos**
+Below are placeholders for demo videos showcasing the setup and functionality:
+
+### **Demo 1: YOLO pick and place (all objects)**
+Path: `https://youtu.be/zhXJAranXvs`
+
+### **Demo 2: Live follow object**
+Path: `https://youtu.be/nmTNxC26TY8`
+
+### **Demo 3: YOLO pick and place by color**
+Path: `https://youtu.be/rpVzYJeprjo`
+
+### **Demo 4: Debug of pointcloud and yolo systems**
+Path: `https://youtu.be/09IttTgBQR8`
