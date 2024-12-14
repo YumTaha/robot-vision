@@ -20,33 +20,13 @@ If the "_frame not published within 5sec_" error pops up, you can add `initial_r
 
 ---
 
-## **2. Training YOLO**
+## **2. YOLO Installation/Configuration**
 
-To train a YOLO model for object detection:
+### **i. installing YOLO**
 
-### **Dataset Preparation:**
-- Use [RoboFlow](https://roboflow.com/) to upload, annotate, and augment your dataset.
+To integrate YOLO with **ROS 2**, follow the steps provided in the [YOLO Ros GitHub repository](https://github.com/mgonzs13/yolo_ros?tab=readme-ov-file#installation).
 
-### **Model Training:**
-- Access [Google Colab](https://colab.research.google.com/) through RoboFlow for training.
-- Export the trained model for deployment in **YOLO ROS**.
-
-> [!TIP]
-> Use data augmentation in RoboFlow to improve model performance.
-> 
-> <details>
-> <summary>Example Dataset Workflow</summary>
-> 
-> 1. Open an augmentation workspace in RoboFlow.
-> 2. Upload images.
-> 3. Annotate objects of interest.
-> 4. Train model online using Google Colab.
-> 5. Export in YOLO format (choose your YOLO version). <sub> YOLOv11 </sub>
-> </details>
-
----
-
-## **3. NVIDIA Driver Installation for YOLO**
+### **ii. NVIDIA Driver Installation for YOLO**
 
 To use YOLO with your GPU, ensure the **NVIDIA drivers** are correctly installed.
 Follow the official [Ubuntu NVIDIA Driver Installation Guide](https://ubuntu.com/server/docs/nvidia-drivers-installation).
@@ -70,17 +50,53 @@ If the output is `True`, CUDA is successfully installed and functional.
 > ```
 > </details>
 
----
+### **iii. Training YOLO**
 
-## **4. YOLO ROS Configuration**
+To train a YOLO model for object detection:
+
+#### **Dataset Preparation:**
+- Use [RoboFlow](https://roboflow.com/) to upload, annotate, and augment your dataset.
+
+#### **Model Training:**
+- Access [Google Colab](https://colab.research.google.com/) through RoboFlow for training.
+- Export the trained model for deployment in **YOLO ROS**.
+
+> [!TIP]
+> Use data augmentation in RoboFlow to improve model performance.
+> 
+> <details>
+> <summary>Example Dataset Workflow</summary>
+> 
+> 1. Open an augmentation workspace in RoboFlow.
+> 2. Upload images.
+> 3. Annotate objects of interest.
+> 4. Train model online using Google Colab.
+> 5. Export in YOLO format (choose your YOLO version). <sub> YOLOv11 </sub>
+> </details>
+
+**Command for launching the YOLO:**
+```bash
+ros2 launch yolo_bringup rs_launch.py initial_reset:=true pointcloud.enable:=true align_depth.enable:=true
+```
+If the "_frame not published within 5sec_" error pops up, you can add `initial_reset:=true` to the command.
+
+#### **Ensure the following features are enabled:**
+- **Initial Reset**: Allows the RealSense device to reset to ensure proper startup.
+- **PointCloud**: Enables depth to 3D point cloud mapping.
+- **Align Depth**: Aligns the depth image with the color image for accurate overlays (dimensions).
+
+> [!NOTE]
+> Ensure these topics match the RealSense camera configuration to avoid misalignments.
+
+### **iv. YOLO ROS Configuration**
 Download YOLO ROS packages from the [YOLO ROS GitHub Releases](https://github.com/mgonzs13/yolo_ros/releases).
 
-### **Editing the YOLO Launch File**
+#### **Editing the YOLO Launch File**
 Navigate to `yolo_ros/yolo_bringup/launch` and modify the `yolo.launch.py` file with the following parameters:
 
 | **Parameter**                   | **Value**                                                    |
 |---------------------------------|------------------------------------------------------------|
-| `model_type`                    | Path to your trained YOLO model (e.g., `/home/iras/best.pt`) |
+| `model_type`                    | Path to your trained YOLO model (e.g., `/yolo_ros/best.pt`) |
 | `input_image_topic`             | `/camera/camera/color/image_raw`                           |
 | `image_reliability`             | `1`                                                        |
 | `input_depth_topic`             | `/camera/camera/aligned_depth_to_color/image_raw`          |
@@ -105,16 +121,14 @@ Navigate to `yolo_ros/yolo_bringup/launch` and modify the `yolo.launch.py` file 
 > ```
 > </details>
 
----
-
-## **5. Command Execution**
+### **v. Command Execution**
 To launch the YOLO ROS node with the configured parameters, execute:
 
-### **With 2D detection:**
+#### **With 2D detection:**
 ```bash
 ros2 launch yolo_bringup yolov11.launch.py
 ```
-### **With 3D detection:**
+#### **With 3D detection:**
 ```bash
 ros2 launch yolo_bringup yolov11.launch.py use_3d:=True
 ```
@@ -126,13 +140,13 @@ ros2 launch yolo_bringup yolov11.launch.py use_3d:=True
 <summary>Command Execution Example</summary>
 
 ```bash
-ros2 launch yolo_bringup yolov11.launch.py use_3d:=True
+ros2 launch yolo_bringup yolov11.launch.py use_3d:=True maximum_detection_threshold:=0.05
 ```
 </details>
 
 ---
 
-## **6. RVIZ Configuration**
+## **3. RVIZ Configuration**
 To create a visualization, configure the following parameters:
 
 | **Parameter**           | **Value**                                     |
@@ -144,7 +158,9 @@ To create a visualization, configure the following parameters:
 
 
 > [!NOTE]
-> Ensure these topics match the configuration to avoid misalignments.
+> - Ensure these topics match the configuration to avoid misalignments.
+> - You can always edit them in rviz and save them to an rviz file to be loaded.
+> - The Rviz config file for yolo is in `yolo_ros/src/yolo_ros/yolo_bringup/rviz/yolo.rviz`
 
 ---
 
@@ -166,7 +182,10 @@ ros2 launch yolo_bringup yolov11.launch.py use_3d:=True input_depth_topic:="/cam
 
 ---
 
-## **7. Live Demos**
+
+
+
+## **5. Live Demos**
 Below are placeholders for demo videos showcasing the setup and functionality:
 
 ### **Demo 1: YOLO pick and place (all objects)**
