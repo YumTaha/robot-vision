@@ -107,27 +107,30 @@ Launch YOLO with 3D detection and adjusted depth inputs:
 ros2 launch yolo_bringup yolov11.launch.py use_3d:=True input_depth_topic:="/camera/camera/depth/image_rect_raw" input_depth_info_topic:="/camera/camera/depth/camera_info"
 ```
 
+
+
+
 ---
 
 ## **7. Live Demos**
 Below are placeholders for demo videos showcasing the setup and functionality:
 
 ### **Demo 1: YOLO pick and place (all objects)**
-Path: '/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/yolo_pick_place.py'
+Path: `/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/yolo_pick_place.py`
 
-Video: https://youtu.be/zhXJAranXvs
+[yolo pick and place](https://github.com/user-attachments/assets/d70c9688-d756-4792-b1cb-8a27c9746c45)
 
 ### **Demo 2: Live follow object**
-Path: '/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/live_follow.py'
+Path: `/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/live_follow.py`
 
-Video: https://youtu.be/nmTNxC26TY8
+[live follow](https://github.com/user-attachments/assets/5c856ebd-8666-4d57-9b7d-e06c957f0cc9)
 
 ### **Demo 3: YOLO pick and place by color**
-Path: '/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/color_pick_place.py'
+Path: `/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/color_pick_place.py`
 
-Video: https://youtu.be/rpVzYJeprjo
+[color pick and place](https://github.com/user-attachments/assets/8c594d41-111f-4873-812f-b732c657cfc2)
 
 ### **Demo 4: Debug of pointcloud and yolo systems**
-Path: '/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/debug.py'
+Path: `/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/demos/yolo_demos/debug.py`
 
-Video: https://youtu.be/09IttTgBQR8
+[debug](https://github.com/user-attachments/assets/e1856100-eb18-4dc4-af27-744f6f22f7b7)
