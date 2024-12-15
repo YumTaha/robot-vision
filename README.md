@@ -6,12 +6,11 @@ To integrate RealSense with **ROS 2**, follow the steps provided in the [Intel R
 
 **Command for launching the RealSense camera:**
 ```bash
-ros2 launch realsense2_camera rs_launch.py initial_reset:=true pointcloud.enable:=true align_depth.enable:=true
+ros2 launch realsense2_camera rs_launch.py pointcloud.enable:=true align_depth.enable:=true
 ```
 If the "_frame not published within 5sec_" error pops up, you can add `initial_reset:=true` to the command.
 
-### **Ensure the following features are enabled:**
-- **Initial Reset**: Allows the RealSense device to reset to ensure proper startup.
+### **Ensure the following arguments are enabled:**
 - **PointCloud**: Enables depth to 3D point cloud mapping.
 - **Align Depth**: Aligns the depth image with the color image for accurate overlays (dimensions).
 
