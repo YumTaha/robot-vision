@@ -208,5 +208,6 @@ The QoS (Quality of Service) settings for the camera publisher and subscriber ar
 ### **3D BoudingBox stretching**
 
 Try to reduce the `maximum_detection_threshold`. You can try values near your object box size.
+![image](https://github.com/user-attachments/assets/a98db393-e3ed-4f20-90e0-fb07bb46e2cd)
 
 ---
