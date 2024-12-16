@@ -73,22 +73,7 @@ To train a YOLO model for object detection:
 > 5. Export in YOLO format (choose your YOLO version). <sub> YOLOv11 </sub>
 > </details>
 
-**Command for launching the YOLO:**
-```bash
-ros2 launch yolo_bringup rs_launch.py initial_reset:=true pointcloud.enable:=true align_depth.enable:=true
-```
-If the "_frame not published within 5sec_" error pops up, you can add `initial_reset:=true` to the command.
-
-#### **Ensure the following features are enabled:**
-- **Initial Reset**: Allows the RealSense device to reset to ensure proper startup.
-- **PointCloud**: Enables depth to 3D point cloud mapping.
-- **Align Depth**: Aligns the depth image with the color image for accurate overlays (dimensions).
-
-> [!NOTE]
-> Ensure these topics match the RealSense camera configuration to avoid misalignments.
-
 ### **iv. YOLO ROS Configuration**
-Download YOLO ROS packages from the [YOLO ROS GitHub Releases](https://github.com/mgonzs13/yolo_ros/releases).
 
 #### **Editing the YOLO Launch File**
 Navigate to `yolo_ros/yolo_bringup/launch` and modify the `yolo.launch.py` file with the following parameters:
@@ -182,8 +167,6 @@ ros2 launch yolo_bringup yolov11.launch.py use_3d:=True input_depth_topic:="/cam
 ---
 
 
-
-
 ## **5. Live Demos**
 Below are placeholders for demo videos showcasing the setup and functionality:
 
@@ -207,4 +190,20 @@ Path: `/home/iras/interbotix_ws/src/interbotix_ros_manipulators/interbotix_ros_x
 
 [debug](https://github.com/user-attachments/assets/e1856100-eb18-4dc4-af27-744f6f22f7b7)
 
+---
+
+## **6. Troubleshooting**
+Below are some common error messages, warnings, or issues you might see, and how to go about fixing them.
+
+### **Camera lag/ low fps**
+The QoS (Quality of Service) settings for the camera publisher and subscriber are mismatched.
+
+   Use the following command to inspect the QoS settings for your camera topic:
+   ```bash
+   ros2 topic info -v /camera/camera/color/image_raw
+   ```
+   - Look for the **Reliability** setting under both the **Publisher** and **Subscriber** sections.
+   - If the **Publisher** uses `RELIABLE` but the **Subscriber** (e.g., YOLO node) uses `BEST_EFFORT`, a mismatch occurs. Make sure they match.
+
+---
 
