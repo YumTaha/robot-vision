@@ -205,5 +205,8 @@ The QoS (Quality of Service) settings for the camera publisher and subscriber ar
    - Look for the **Reliability** setting under both the **Publisher** and **Subscriber** sections.
    - If the **Publisher** uses `RELIABLE` but the **Subscriber** (e.g., YOLO node) uses `BEST_EFFORT`, a mismatch occurs. Make sure they match.
 
----
+### **3D BoudingBox stretching**
 
+Try to reduce the `maximum_detection_threshold`. You can try values near your object box size.
+
+---
